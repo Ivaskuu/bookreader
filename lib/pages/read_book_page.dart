@@ -6,21 +6,58 @@ class ReadBookPage extends StatefulWidget
   _ReadBookPageState createState() => new _ReadBookPageState();
 }
 
-class _ReadBookPageState extends State<ReadBookPage>
+class _ReadBookPageState extends State<ReadBookPage> with SingleTickerProviderStateMixin
 {
+  AnimationController animationController;
+  ScrollController scrollController;
+  Animation<Color> colorTween1;
+  Animation<Color> colorTween2;
+
   final double statusBarSize = 24.0;
   final double imageSize = 264.0;
 
   double readPerc = 0.0;
-  ScrollController controller;
 
   @override
   void initState()
   {
     super.initState();
-    
-    controller = new ScrollController();
-    controller.addListener(() => setState(() => readPerc = controller.offset / controller.position.maxScrollExtent));
+
+    // Create the appbar colors animations
+    animationController = new AnimationController(duration: new Duration(milliseconds: 500), vsync: this);
+    animationController.addListener(() => setState(() {}));
+
+    colorTween1 = new ColorTween
+    (
+      begin: Colors.black12,
+      end: new Color(0xFF0018C8)
+    ).animate(new CurvedAnimation
+    (
+      parent: animationController,
+      curve: Curves.easeIn
+    ));
+    colorTween2 = new ColorTween
+    (
+      begin: Colors.transparent,
+      end: new Color(0xFF001880)
+    ).animate(new CurvedAnimation
+    (
+      parent: animationController,
+      curve: Curves.easeIn
+    ));
+
+    scrollController = new ScrollController();
+    scrollController.addListener(()
+    {
+      setState(() => readPerc = scrollController.offset / scrollController.position.maxScrollExtent);
+
+      // Change the appbar colors
+      if(scrollController.offset > imageSize - statusBarSize)
+      {
+        if(animationController.status == AnimationStatus.dismissed) animationController.forward();
+      }
+      else if(animationController.status == AnimationStatus.completed) animationController.reverse();
+    });
   }
 
   @override
@@ -28,7 +65,6 @@ class _ReadBookPageState extends State<ReadBookPage>
   {
     return new Scaffold
     (
-      //backgroundColor: Colors.white,
       body: new Hero
       (
         tag: 'Material',
@@ -43,7 +79,7 @@ class _ReadBookPageState extends State<ReadBookPage>
               new ListView
               (
                 padding: new EdgeInsets.all(0.0),
-                controller: controller,
+                controller: scrollController,
                 children: <Widget>
                 [
                   new SizedBox.fromSize
@@ -97,31 +133,19 @@ class _ReadBookPageState extends State<ReadBookPage>
                     alignment: Alignment.centerLeft,
                     children: <Widget>
                     [
-                      (controller.hasClients ? controller.offset : 0.0) > imageSize - statusBarSize ? new SizedBox.expand // If the user scrolled over the image
+                      new SizedBox.expand // If the user scrolled over the image
                       (
                         child: new Material
                         (
-                          color: new Color(0xFF0018C8),
-                        ),
-                      ) : new SizedBox.expand
-                      (
-                        child: new Material
-                        (
-                          color: Colors.black12,
+                          color: colorTween1.value,
                         ),
                       ),
-                      (controller.hasClients ? controller.offset : 0.0) > imageSize - statusBarSize ? new SizedBox.fromSize // TODO: Animate the reveal
+                      new SizedBox.fromSize // TODO: Animate the reveal
                       (
                         size: new Size.fromWidth(MediaQuery.of(context).size.width * readPerc),
                         child: new Material
                         (
-                          color: new Color(0xFF001880),
-                        ),
-                      ) : new SizedBox.expand
-                      (
-                        child: new Material
-                        (
-                          color: Colors.black12,
+                          color: colorTween2.value,
                         ),
                       ),
                       new Align
