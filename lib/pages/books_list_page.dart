@@ -9,12 +9,15 @@ class BooksListPage extends StatefulWidget
 
 class _BooksListPageState extends State<BooksListPage>
 {
+  static final List<Color> colorsByPage = [ new Color(0xFF0018C8), new Color(0xFFDD1829) ];
+  Color backgroundColor = colorsByPage[0];
+
   @override
   Widget build(BuildContext context)
   {
     return new Scaffold
     (
-      backgroundColor: new Color(0xFF0018C8),
+      backgroundColor: backgroundColor,
       body: new SizedBox.expand
       (
         child: new Column
@@ -89,6 +92,10 @@ class _BooksListPageState extends State<BooksListPage>
                           (
                             child: new PageView
                             (
+                              onPageChanged: (int page)
+                              {
+                                setState(() => backgroundColor = colorsByPage[page]);
+                              },
                               children: <Widget>
                               [
                                 new SizedBox.expand
@@ -140,7 +147,7 @@ class _BooksListPageState extends State<BooksListPage>
                                                   padding: new EdgeInsets.only(top: 48.0),
                                                   child: new Material
                                                   (
-                                                    color: new Color(0xFF0018C8),
+                                                    color: colorsByPage[0],
                                                     borderRadius: new BorderRadius.circular(64.0),
                                                     child: new InkWell
                                                     (
@@ -210,7 +217,7 @@ class _BooksListPageState extends State<BooksListPage>
                                                   padding: new EdgeInsets.only(top: 48.0),
                                                   child: new Material
                                                   (
-                                                    color: new Color(0xFF0018C8),
+                                                    color: colorsByPage[1],
                                                     borderRadius: new BorderRadius.circular(64.0),
                                                     child: new InkWell
                                                     (
@@ -243,36 +250,6 @@ class _BooksListPageState extends State<BooksListPage>
             )
           ],
         )
-        
-        // new Stack
-        // (
-        //   children: <Widget>
-        //   [
-        //     new Align
-        //     (
-        //       alignment: Alignment.topCenter,
-        //       child: new Container
-        //       (
-        //         margin: new EdgeInsets.only(top: 64.0),
-        //         child: new Column
-        //         (
-        //           mainAxisAlignment: MainAxisAlignment.start,
-        //           crossAxisAlignment: CrossAxisAlignment.center,
-        //           children: <Widget>
-        //           [
-        //             new Icon(Icons.airline_seat_legroom_normal, color: Colors.white, size: 64.0),
-        //             new Padding(padding: new EdgeInsets.only(bottom: 16.0)),
-        //             new Text('Discover. Learn. Elevate.', style: new TextStyle(color: Colors.white, fontWeight: FontWeight.w300, fontSize: 26.0))
-        //           ],
-        //         ),
-        //       ),
-        //     ),
-        //     new Align
-        //     (
-        //       alignment: Alignment.b,
-        //     )
-        //   ],
-        // )
       )
     );
   }
