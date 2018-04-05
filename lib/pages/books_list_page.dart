@@ -33,7 +33,11 @@ class _BooksListPageState extends State<BooksListPage>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>
                 [
-                  new Icon(Icons.account_circle, color: Colors.white, size: 64.0),
+                  new Hero
+                  (
+                    tag: 'Logo',
+                    child: new Icon(Icons.account_circle, color: Colors.white, size: 64.0)
+                  ),
                   new Padding(padding: new EdgeInsets.only(bottom: 16.0)),
                   new Text('Discover. Learn. Elevate.', style: new TextStyle(color: Colors.white, fontWeight: FontWeight.w300, fontSize: 26.0))
                 ],
@@ -43,113 +47,125 @@ class _BooksListPageState extends State<BooksListPage>
             (
               child: new SizedBox.expand
               (
-                child: new Material
+                child: new Hero
                 (
-                  color: Colors.white,
-                  borderRadius: new BorderRadius.only
+                  tag: 'Material',
+                  child: new Material
                   (
-                    topLeft: new Radius.circular(32.0),
-                    topRight: new Radius.circular(32.0),
-                  ),
-                  elevation: 24.0,
-                  child: new Container
-                  (
-                    margin: new EdgeInsets.only(top: 32.0, left: 16.0, right: 16.0),
-                    child: new Column
+                    color: Colors.white,
+                    borderRadius: new BorderRadius.only
                     (
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>
-                      [
-                        /// Tabs
-                        new Container
-                        (
-                          margin: new EdgeInsets.only(bottom: 16.0),
-                          child: new Row
+                      topLeft: new Radius.circular(32.0),
+                      topRight: new Radius.circular(32.0),
+                    ),
+                    elevation: 24.0,
+                    child: new Container
+                    (
+                      margin: new EdgeInsets.only(top: 32.0, left: 16.0, right: 16.0),
+                      child: new Column
+                      (
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>
+                        [
+                          /// Tabs
+                          new Container
                           (
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>
-                            [
-                              new Text('BOOKS', style: new TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16.0)),
-                              new Text('PODCAST', style: new TextStyle(color: Colors.black38, fontWeight: FontWeight.w600, fontSize: 16.0)),
-                              new Text('WORKSHOPS', style: new TextStyle(color: Colors.black38, fontWeight: FontWeight.w600, fontSize: 16.0)),
-                            ],
+                            margin: new EdgeInsets.only(bottom: 16.0),
+                            child: new Row
+                            (
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>
+                              [
+                                new Text('BOOKS', style: new TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16.0)),
+                                new Text('PODCAST', style: new TextStyle(color: Colors.black38, fontWeight: FontWeight.w600, fontSize: 16.0)),
+                                new Text('WORKSHOPS', style: new TextStyle(color: Colors.black38, fontWeight: FontWeight.w600, fontSize: 16.0)),
+                              ],
+                            ),
                           ),
-                        ),
-                        /// PageView
-                        new Expanded
-                        (
-                          child: new PageView
+                          /// PageView
+                          new Expanded
                           (
-                            children: <Widget>
-                            [
-                              new SizedBox.expand
-                              (
-                                child: new Padding
+                            child: new PageView
+                            (
+                              children: <Widget>
+                              [
+                                new SizedBox.expand
                                 (
-                                  padding: new EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0, bottom: 32.0),
-                                  child: new Material
+                                  child: new Padding
                                   (
-                                    color: Colors.white,
-                                    elevation: 10.0,
-                                    borderRadius: new BorderRadius.circular(8.0),
-                                    child: new Column
+                                    padding: new EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0, bottom: 32.0),
+                                    child: new Material
                                     (
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: <Widget>
-                                      [
-                                        new Image.asset('res/img1.png'),
-                                        new Padding
-                                        (
-                                          padding: new EdgeInsets.all(16.0),
-                                          child: new Column
+                                      color: Colors.white,
+                                      elevation: 10.0,
+                                      borderRadius: new BorderRadius.circular(8.0),
+                                      child: new Column
+                                      (
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: <Widget>
+                                        [
+                                          new Hero
                                           (
-                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: <Widget>
-                                            [
-                                              new Column
-                                              (
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: <Widget>
-                                                [
-                                                  new Text('Principles of Product Design', style: new TextStyle(fontSize: 30.0)),
-                                                  new Text('By Aaron Walter', style: new TextStyle(fontSize: 16.0)),
-                                                ],
-                                              ),
-                                              new Padding
-                                              (
-                                                padding: new EdgeInsets.only(top: 48.0),
-                                                child: new Material
+                                            tag: 'Image',
+                                            child: new Image.asset('res/img1.png')
+                                          ),
+                                          new Padding
+                                          (
+                                            padding: new EdgeInsets.all(16.0),
+                                            child: new Column
+                                            (
+                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: <Widget>
+                                              [
+                                                new Column
                                                 (
-                                                  color: new Color(0xFF0018C8),
-                                                  borderRadius: new BorderRadius.circular(64.0),
-                                                  child: new InkWell
-                                                  (
-                                                    onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (_) => new ReadBookPage())),
-                                                    child: new Container
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: <Widget>
+                                                  [
+                                                    new Hero
                                                     (
-                                                      margin: new EdgeInsets.symmetric(vertical: 14.0, horizontal: 40.0),
-                                                      child: new Text('READ BOOK', style: new TextStyle(fontWeight: FontWeight.w300, color: Colors.white)),
+                                                      tag: 'Title',
+                                                      child: new Text('Principles of Product Design', style: new TextStyle(fontSize: 30.0, color: Colors.black, fontWeight: FontWeight.w600)),
+                                                    ),
+                                                    new Text('By Aaron Walter', style: new TextStyle(fontSize: 16.0)),
+                                                  ],
+                                                ),
+                                                new Padding
+                                                (
+                                                  padding: new EdgeInsets.only(top: 48.0),
+                                                  child: new Material
+                                                  (
+                                                    color: new Color(0xFF0018C8),
+                                                    borderRadius: new BorderRadius.circular(64.0),
+                                                    child: new InkWell
+                                                    (
+                                                      onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (_) => new ReadBookPage())),
+                                                      child: new Container
+                                                      (
+                                                        margin: new EdgeInsets.symmetric(vertical: 14.0, horizontal: 40.0),
+                                                        child: new Text('READ BOOK', style: new TextStyle(fontWeight: FontWeight.w300, color: Colors.white)),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                      ],
+                                                )
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
