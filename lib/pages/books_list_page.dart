@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'read_book_page.dart';
 
 class BooksListPage extends StatefulWidget
 {
@@ -128,7 +129,7 @@ class _BooksListPageState extends State<BooksListPage>
                                                   borderRadius: new BorderRadius.circular(64.0),
                                                   child: new InkWell
                                                   (
-                                                    onTap: () {},
+                                                    onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (_) => new ReadBookPage())),
                                                     child: new Container
                                                     (
                                                       margin: new EdgeInsets.symmetric(vertical: 14.0, horizontal: 40.0),
