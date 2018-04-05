@@ -52,7 +52,7 @@ class _BooksListPageState extends State<BooksListPage>
               (
                 child: new Hero
                 (
-                  tag: 'Material',
+                  tag: 'Materiall',
                   child: new Material
                   (
                     color: Colors.white,
@@ -90,155 +90,159 @@ class _BooksListPageState extends State<BooksListPage>
                           /// PageView
                           new Expanded
                           (
-                            child: new PageView
+                            child: new Hero
                             (
-                              onPageChanged: (int page)
-                              {
-                                setState(() => backgroundColor = colorsByPage[page]);
-                              },
-                              children: <Widget>
-                              [
-                                new SizedBox.expand
-                                (
-                                  child: new Padding
+                              tag: 'Material',
+                              child: new PageView
+                              (
+                                onPageChanged: (int page)
+                                {
+                                  setState(() => backgroundColor = colorsByPage[page]);
+                                },
+                                children: <Widget>
+                                [
+                                  new SizedBox.expand
                                   (
-                                    padding: new EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0, bottom: 32.0),
-                                    child: new Material
+                                    child: new Padding
                                     (
-                                      color: Colors.white,
-                                      elevation: 10.0,
-                                      borderRadius: new BorderRadius.circular(8.0),
-                                      child: new Column
+                                      padding: new EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0, bottom: 32.0),
+                                      child: new Material
                                       (
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>
-                                        [
-                                          new Hero
-                                          (
-                                            tag: 'Image',
-                                            child: new Image.asset('res/img1.png')
-                                          ),
-                                          new Padding
-                                          (
-                                            padding: new EdgeInsets.all(16.0),
-                                            child: new Column
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        borderRadius: new BorderRadius.circular(8.0),
+                                        child: new Column
+                                        (
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: <Widget>
+                                          [
+                                            new Hero
                                             (
-                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: <Widget>
-                                              [
-                                                new Column
-                                                (
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: <Widget>
-                                                  [
-                                                    new Hero
-                                                    (
-                                                      tag: 'Title',
-                                                      child: new Text('Principles of Product Design', style: new TextStyle(fontSize: 30.0, color: Colors.black, fontWeight: FontWeight.w600)),
-                                                    ),
-                                                    new Text('By Aaron Walter', style: new TextStyle(fontSize: 16.0)),
-                                                  ],
-                                                ),
-                                                new Padding
-                                                (
-                                                  padding: new EdgeInsets.only(top: 48.0),
-                                                  child: new Material
+                                              tag: 'Image',
+                                              child: new Image.asset('res/img1.png')
+                                            ),
+                                            new Padding
+                                            (
+                                              padding: new EdgeInsets.all(16.0),
+                                              child: new Column
+                                              (
+                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: <Widget>
+                                                [
+                                                  new Column
                                                   (
-                                                    color: colorsByPage[0],
-                                                    borderRadius: new BorderRadius.circular(64.0),
-                                                    child: new InkWell
-                                                    (
-                                                      onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (_) => new ReadBookPage())),
-                                                      child: new Container
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: <Widget>
+                                                    [
+                                                      new Hero
                                                       (
-                                                        margin: new EdgeInsets.symmetric(vertical: 14.0, horizontal: 40.0),
-                                                        child: new Text('READ BOOK', style: new TextStyle(fontWeight: FontWeight.w300, color: Colors.white)),
+                                                        tag: 'Title',
+                                                        child: new Text('Principles of Product Design', style: new TextStyle(fontSize: 30.0, color: Colors.black, fontWeight: FontWeight.w600)),
+                                                      ),
+                                                      new Text('By Aaron Walter', style: new TextStyle(fontSize: 16.0)),
+                                                    ],
+                                                  ),
+                                                  new Padding
+                                                  (
+                                                    padding: new EdgeInsets.only(top: 48.0),
+                                                    child: new Material
+                                                    (
+                                                      color: colorsByPage[0],
+                                                      borderRadius: new BorderRadius.circular(64.0),
+                                                      child: new InkWell
+                                                      (
+                                                        onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (_) => new ReadBookPage())),
+                                                        child: new Container
+                                                        (
+                                                          margin: new EdgeInsets.symmetric(vertical: 14.0, horizontal: 40.0),
+                                                          child: new Text('READ BOOK', style: new TextStyle(fontWeight: FontWeight.w300, color: Colors.white)),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )
-                                        ],
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                new SizedBox.expand
-                                (
-                                  child: new Padding
+                                  new SizedBox.expand
                                   (
-                                    padding: new EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0, bottom: 32.0),
-                                    child: new Material
+                                    child: new Padding
                                     (
-                                      color: Colors.white,
-                                      elevation: 10.0,
-                                      borderRadius: new BorderRadius.circular(8.0),
-                                      child: new Column
+                                      padding: new EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0, bottom: 32.0),
+                                      child: new Material
                                       (
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>
-                                        [
-                                          new Hero
-                                          (
-                                            tag: 'Image',
-                                            child: new Image.asset('res/img1.png')
-                                          ),
-                                          new Padding
-                                          (
-                                            padding: new EdgeInsets.all(16.0),
-                                            child: new Column
+                                        color: Colors.white,
+                                        elevation: 10.0,
+                                        borderRadius: new BorderRadius.circular(8.0),
+                                        child: new Column
+                                        (
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: <Widget>
+                                          [
+                                            new Hero
                                             (
-                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: <Widget>
-                                              [
-                                                new Column
-                                                (
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: <Widget>
-                                                  [
-                                                    new Hero
-                                                    (
-                                                      tag: 'Title',
-                                                      child: new Text('Principles of Product Design', style: new TextStyle(fontSize: 30.0, color: Colors.black, fontWeight: FontWeight.w600)),
-                                                    ),
-                                                    new Text('By Aaron Walter', style: new TextStyle(fontSize: 16.0)),
-                                                  ],
-                                                ),
-                                                new Padding
-                                                (
-                                                  padding: new EdgeInsets.only(top: 48.0),
-                                                  child: new Material
+                                              tag: 'Image',
+                                              child: new Image.asset('res/img1.png')
+                                            ),
+                                            new Padding
+                                            (
+                                              padding: new EdgeInsets.all(16.0),
+                                              child: new Column
+                                              (
+                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: <Widget>
+                                                [
+                                                  new Column
                                                   (
-                                                    color: colorsByPage[1],
-                                                    borderRadius: new BorderRadius.circular(64.0),
-                                                    child: new InkWell
-                                                    (
-                                                      onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (_) => new ReadBookPage())),
-                                                      child: new Container
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: <Widget>
+                                                    [
+                                                      new Hero
                                                       (
-                                                        margin: new EdgeInsets.symmetric(vertical: 14.0, horizontal: 40.0),
-                                                        child: new Text('READ BOOK', style: new TextStyle(fontWeight: FontWeight.w300, color: Colors.white)),
+                                                        tag: 'Title',
+                                                        child: new Text('Principles of Product Design', style: new TextStyle(fontSize: 30.0, color: Colors.black, fontWeight: FontWeight.w600)),
+                                                      ),
+                                                      new Text('By Aaron Walter', style: new TextStyle(fontSize: 16.0)),
+                                                    ],
+                                                  ),
+                                                  new Padding
+                                                  (
+                                                    padding: new EdgeInsets.only(top: 48.0),
+                                                    child: new Material
+                                                    (
+                                                      color: colorsByPage[1],
+                                                      borderRadius: new BorderRadius.circular(64.0),
+                                                      child: new InkWell
+                                                      (
+                                                        onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (_) => new ReadBookPage())),
+                                                        child: new Container
+                                                        (
+                                                          margin: new EdgeInsets.symmetric(vertical: 14.0, horizontal: 40.0),
+                                                          child: new Text('READ BOOK', style: new TextStyle(fontWeight: FontWeight.w300, color: Colors.white)),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )
-                                        ],
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           )
                         ],

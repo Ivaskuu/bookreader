@@ -112,7 +112,7 @@ class _ReadBookPageState extends State<ReadBookPage> with SingleTickerProviderSt
                   ),
                   new Container
                   (
-                    margin: new EdgeInsets.only(left: 32.0, right: 32.0, bottom: 32.0),
+                    margin: new EdgeInsets.only(left: 32.0, right: 32.0, bottom: 80.0),
                     child: new Text
                     (
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in dignissim ligula. Sed mattis leo tortor, nec ornare elit dapibus sed. Phasellus sit amet massa id massa fermentum condimentum et vitae urna. Nunc enim elit, porttitor eu dictum non, commodo at diam. Sed et tortor quam. Integer ac molestie diam. Aenean nec elit venenatis, imperdiet purus et, finibus arcu. In ut turpis pellentesque, tempus dui tempor, aliquam diam. Mauris ut odio vitae nulla maximus tempor a id lorem. Curabitur sem quam, sollicitudin non consequat et, gravida a diam. Proin feugiat mollis ipsum eu aliquam. Duis bibendum enim at diam blandit porta nec a est. Curabitur eget mauris in tellus ornare pharetra non nec odio.\n\nNulla hendrerit molestie blandit. Integer rhoncus neque vitae libero semper, a interdum quam ultricies. Phasellus porta dui non lectus dignissim vulputate. Proin non mauris accumsan, blandit ante vitae, iaculis turpis. Praesent dolor mi, tincidunt in tortor non, consectetur mollis dui. Aliquam id nunc in ex porta ornare. Phasellus et tristique ligula, dignissim consectetur mauris. In condimentum egestas ex vel auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse finibus libero eu cursus suscipit. Praesent ut neque in diam venenatis mattis pharetra id sem. Nulla justo nibh, dictum eu posuere non, rutrum sit amet diam. Nullam aliquam sapien eget augue suscipit eleifend. Etiam semper erat non quam convallis maximus vel ut tortor. Curabitur ligula ex, fermentum sit amet dolor ac, elementum fringilla nibh.\n\nFusce porta bibendum erat, id molestie quam ultrices eu. Sed imperdiet nibh et vehicula facilisis. Nam vel ultrices magna. Integer vitae est maximus, feugiat nisl non, tempus velit. Phasellus placerat tortor eu nulla suscipit, nec ullamcorper turpis eleifend. Sed posuere, enim et pretium ultricies, risus velit pharetra augue, at convallis nulla eros eget nulla. Ut et metus vitae turpis feugiat aliquam eu vel odio. Pellentesque sed ultricies neque, nec tincidunt mi.\n\nSed eu tortor ut lectus tempus iaculis. Curabitur nec tincidunt dolor, laoreet ultricies ipsum. Pellentesque mi odio, luctus vel turpis sit amet, congue placerat orci. Vestibulum magna libero, venenatis vel congue eget, egestas nec urna. Cras bibendum scelerisque leo, a pellentesque velit cursus sed. Nulla laoreet eros sit amet nunc lobortis posuere. Sed placerat malesuada porta. Phasellus neque lorem, auctor vitae euismod a, molestie in risus. Integer in nisi sagittis, blandit eros sit amet, finibus elit. Praesent mollis velit massa, eget consectetur sem maximus a. Cras vel euismod nunc.\n\nMauris rutrum ac turpis et maximus. Aenean molestie leo orci, sed volutpat magna bibendum ac. Nullam dignissim metus vel laoreet tempor. Sed pharetra nulla at odio dapibus porta. Vestibulum vitae ligula id purus egestas congue et quis dolor. Vivamus sit amet mi molestie, fermentum metus ut, condimentum neque. Maecenas quis felis in est convallis elementum in commodo nibh. Vestibulum sodales viverra quam, quis vulputate orci imperdiet nec. Pellentesque mi eros, ullamcorper ac tortor sed, rutrum pretium dolor. Fusce sollicitudin congue vestibulum.',
@@ -191,6 +191,28 @@ class _ReadBookPageState extends State<ReadBookPage> with SingleTickerProviderSt
                   ),
                 ),
               ),
+              /// Fade bottom text
+              new Align
+              (
+                alignment: Alignment.bottomCenter,
+                child: new SizedBox.fromSize
+                (
+                  size: new Size.fromHeight(100.0),
+                  child: new Container
+                  (
+                    decoration: new BoxDecoration
+                    (
+                      gradient: new LinearGradient
+                      (
+                        colors: [ Colors.white12, Colors.white ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        stops: [ 0.0, 1.0 ]
+                      )
+                    ),
+                  )
+                ),
+              )
             ],
           ),
         ),
